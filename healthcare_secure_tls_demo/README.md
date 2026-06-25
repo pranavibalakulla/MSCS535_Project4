@@ -76,7 +76,6 @@ suite, a confirmation that certificate validation and certificate pinning
 both passed, and the acknowledgment sent back by the server. Terminal A
 should print the connection details and the patient record it received.
 
-**Screenshot 1 (for the paper):** capture both terminals after this run.
 This is your evidence for the general pseudocode section and the TLS
 section.
 
@@ -105,8 +104,6 @@ error, since this certificate was not issued by the trusted hospital
 certificate authority. This demonstrates the VerifyServerCertificate logic
 in Pseudocode 4.
 
-**Screenshot 2 (for the paper):** capture Terminal B showing the rejection.
-
 Stop the rogue server with Ctrl+C before the next test.
 
 ### Test B: a validly signed certificate with the wrong identity
@@ -127,7 +124,6 @@ pinning then catches the mismatch and the connection is still refused. This
 demonstrates exactly why certificate pinning is included as a second layer
 of protection in Pseudocode 5, on top of certificate validation alone.
 
-**Screenshot 3 (for the paper):** capture Terminal B showing the pinning
 failure, including the two different hash values it prints.
 
 Stop the rogue server with Ctrl+C when finished.
@@ -145,15 +141,4 @@ you will see either a local refusal to even offer TLS 1.0 or TLS 1.1, or a
 handshake failure reported by the server. Either result demonstrates the
 downgrade protection in Pseudocode 7.
 
-**Screenshot 4 (optional, for the paper):** capture this output.
 
-## Troubleshooting
-
-* **"Address already in use"**: a previous server is still running on that
-  port. Find and stop it, or wait a few seconds and try again.
-* **"Could not reach localhost"**: make sure the matching server script is
-  running in the other terminal before you run the client.
-* **Different cipher suite or protocol printed than the paper describes**:
-  this is normal. The exact cipher suite depends on your installed version
-  of OpenSSL. As long as the protocol is TLS 1.2 or TLS 1.3, the demo is
-  working as intended.
